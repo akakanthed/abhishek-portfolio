@@ -1,65 +1,220 @@
-import Image from "next/image";
+"use client";
+
+import { motion } from "framer-motion";
+import Nav from "@/components/ui/Nav";
+import CaseStudyCard from "@/components/ui/CaseStudyCard";
+import ContactBlock from "@/components/ui/ContactBlock";
+import { caseStudies } from "@/data/case-studies";
+
+const fadeUp = (delay: number, y = 16) => ({
+  initial: { opacity: 0, y },
+  animate: { opacity: 1, y: 0 },
+  transition: { delay, duration: delay < 0.4 ? 0.4 : 0.5, ease: [0.16, 1, 0.3, 1] as const },
+});
+
+const fadeIn = (delay: number) => ({
+  initial: { opacity: 0 },
+  animate: { opacity: 1 },
+  transition: { delay, duration: 0.4 },
+});
 
 export default function Home() {
+  function scrollToWork(e: React.MouseEvent) {
+    e.preventDefault();
+    document.getElementById("work")?.scrollIntoView({ behavior: "smooth" });
+  }
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+    <>
+      <Nav />
+
+      {/* ── Hero ──────────────────────────────────────────────────── */}
+      <section
+        style={{
+          minHeight: "100vh",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          paddingTop: "80px",
+        }}
+      >
+        <div
+          style={{
+            maxWidth: "900px",
+            margin: "0 auto",
+            width: "100%",
+            padding: "0 24px",
+          }}
+        >
+          {/* 1. Greeting */}
+          <motion.p
+            {...fadeIn(0.1)}
+            style={{
+              fontFamily: "var(--font-inter), sans-serif",
+              fontSize: "var(--text-sm)",
+              color: "var(--text-muted)",
+              marginBottom: "16px",
+              lineHeight: 1,
+            }}
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            Namaste 🙏
+          </motion.p>
+
+          {/* 2. Full name — word by word */}
+          <div
+            style={{
+              fontFamily: "var(--font-dm-serif), serif",
+              fontSize: "var(--text-5xl)",
+              color: "var(--text-primary)",
+              lineHeight: 1.05,
+              letterSpacing: "-0.02em",
+              marginBottom: "20px",
+              display: "flex",
+              gap: "0.3em",
+              flexWrap: "wrap",
+            }}
           >
-            Documentation
-          </a>
+            <motion.span
+              initial={{ opacity: 0, y: 32 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+            >
+              Abhishek
+            </motion.span>
+            <motion.span
+              initial={{ opacity: 0, y: 32 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.35, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+            >
+              Kanthed
+            </motion.span>
+          </div>
+
+          {/* 3. One-liner */}
+          <motion.p
+            {...fadeUp(0.5)}
+            style={{
+              fontFamily: "var(--font-inter), sans-serif",
+              fontSize: "var(--text-xl)",
+              color: "var(--text-secondary)",
+              lineHeight: 1.5,
+              maxWidth: "600px",
+              marginBottom: "24px",
+            }}
+          >
+            Senior Product Designer crafting enterprise and fintech products that actually ship.
+          </motion.p>
+
+          {/* 4. Role chip */}
+          <motion.div
+            {...fadeIn(0.65)}
+            style={{ marginBottom: "32px" }}
+          >
+            <span
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "8px",
+                fontFamily: "var(--font-mono), monospace",
+                fontSize: "var(--text-sm)",
+                color: "var(--text-muted)",
+                border: "1px solid var(--border-subtle)",
+                padding: "6px 12px",
+                borderRadius: "100px",
+              }}
+            >
+              <span style={{ color: "#4ade80", lineHeight: 1 }}>●</span>
+              Currently @ Perforce
+            </span>
+          </motion.div>
+
+          {/* 5. CTA */}
+          <motion.div {...fadeIn(0.75)}>
+            <button
+              onClick={scrollToWork}
+              style={{
+                fontFamily: "var(--font-inter), sans-serif",
+                fontSize: "var(--text-sm)",
+                color: "var(--text-primary)",
+                background: "transparent",
+                border: "1px solid var(--border-default)",
+                padding: "10px 20px",
+                borderRadius: "8px",
+                cursor: "pointer",
+                transition: "background var(--duration-fast), border-color var(--duration-fast)",
+              }}
+              onMouseEnter={(e) => {
+                (e.currentTarget as HTMLButtonElement).style.background = "var(--bg-elevated)";
+              }}
+              onMouseLeave={(e) => {
+                (e.currentTarget as HTMLButtonElement).style.background = "transparent";
+              }}
+            >
+              View Work ↓
+            </button>
+          </motion.div>
         </div>
-      </main>
-    </div>
+      </section>
+
+      {/* ── Work section ─────────────────────────────────────────── */}
+      <section
+        id="work"
+        style={{
+          paddingTop: "var(--space-10)",
+          paddingBottom: "var(--space-10)",
+        }}
+      >
+        <div
+          style={{
+            maxWidth: "1100px",
+            margin: "0 auto",
+            padding: "0 24px",
+          }}
+        >
+          {/* Section label */}
+          <motion.p
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+            style={{
+              fontFamily: "monospace",
+              fontSize: "var(--text-sm)",
+              color: "var(--text-muted)",
+              textTransform: "uppercase",
+              letterSpacing: "0.1em",
+              marginBottom: "var(--space-7)",
+            }}
+          >
+            Selected Work
+          </motion.p>
+
+          {/* Card grid */}
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 480px), 1fr))",
+              gap: "20px",
+            }}
+          >
+            {caseStudies.map((cs, i) => (
+              <CaseStudyCard
+                key={cs.slug}
+                title={cs.title}
+                company={cs.company}
+                category={cs.category}
+                metric={cs.metric}
+                thumbnailSrc={cs.heroImage}
+                slug={`/case-studies/${cs.slug}`}
+                glowColor={cs.glowColor}
+                index={i}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <ContactBlock />
+    </>
   );
 }
