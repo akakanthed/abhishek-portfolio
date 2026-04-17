@@ -100,7 +100,7 @@ export default function ContactBlock() {
               margin: 0,
             }}
           >
-            Want to work together?
+            I think we should talk.
           </h2>
           <p
             style={{
@@ -113,8 +113,8 @@ export default function ContactBlock() {
               marginBottom: 0,
             }}
           >
-            I am currently open to new opportunities. If you&apos;d like to chat
-            about a role, a product challenge, or just good design — get in touch.
+            Currently open to new opportunities. Whether it&apos;s a role, a product
+            challenge, or just a conversation about design — I&apos;m in.
           </p>
         </motion.div>
 

@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Nav from "@/components/ui/Nav";
+import Typewriter from "@/components/ui/Typewriter";
 import CaseStudyCard from "@/components/ui/CaseStudyCard";
 import ContactBlock from "@/components/ui/ContactBlock";
 import { caseStudies } from "@/data/case-studies";
@@ -46,68 +47,46 @@ export default function Home() {
             padding: "0 24px",
           }}
         >
-          {/* 1. Greeting */}
-          <motion.p
-            {...fadeIn(0.1)}
-            style={{
-              fontFamily: "var(--font-inter), sans-serif",
-              fontSize: "var(--text-sm)",
-              color: "var(--text-muted)",
-              marginBottom: "16px",
-              lineHeight: 1,
-            }}
-          >
-            Namaste 🙏
-          </motion.p>
-
-          {/* 2. Full name — word by word */}
+          {/* 1. "I think…" + Typewriter */}
           <div
             style={{
-              fontFamily: "var(--font-dm-serif), serif",
-              fontSize: "var(--text-5xl)",
               color: "var(--text-primary)",
-              lineHeight: 1.05,
-              letterSpacing: "-0.02em",
-              marginBottom: "20px",
-              display: "flex",
-              gap: "0.3em",
-              flexWrap: "wrap",
-            }}
-          >
-            <motion.span
-              initial={{ opacity: 0, y: 32 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-            >
-              Abhishek
-            </motion.span>
-            <motion.span
-              initial={{ opacity: 0, y: 32 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.35, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-            >
-              Kanthed
-            </motion.span>
-          </div>
-
-          {/* 3. One-liner */}
-          <motion.p
-            {...fadeUp(0.5)}
-            style={{
-              fontFamily: "var(--font-inter), sans-serif",
-              fontSize: "var(--text-xl)",
-              color: "var(--text-secondary)",
-              lineHeight: 1.5,
-              maxWidth: "600px",
+              lineHeight: 1.1,
               marginBottom: "24px",
+              display: "flex",
+              flexDirection: "column",
+              gap: "12px",
             }}
           >
-            Senior Product Designer crafting enterprise and fintech products that actually ship.
-          </motion.p>
+            <motion.div
+              {...fadeUp(0.1)}
+              style={{
+                fontFamily: "var(--font-dm-serif), serif",
+                fontSize: "var(--text-5xl)",
+                letterSpacing: "-0.02em",
+              }}
+            >
+              I think…
+            </motion.div>
+            <motion.div
+              {...fadeUp(0.25)}
+              style={{
+                fontFamily: "var(--font-inter), sans-serif",
+                fontSize: "var(--text-xl)",
+                color: "var(--text-secondary)",
+                lineHeight: 1.4,
+                whiteSpace: "nowrap",
+                overflow: "hidden",
+                textOverflow: "clip",
+              }}
+            >
+              <Typewriter />
+            </motion.div>
+          </div>
 
           {/* 4. Role chip */}
           <motion.div
-            {...fadeIn(0.65)}
+            {...fadeIn(0.55)}
             style={{ marginBottom: "32px" }}
           >
             <span
@@ -124,12 +103,12 @@ export default function Home() {
               }}
             >
               <span style={{ color: "#4ade80", lineHeight: 1 }}>●</span>
-              Currently @ Perforce
+              Currently designing for DevOps @ Perforce
             </span>
           </motion.div>
 
           {/* 5. CTA */}
-          <motion.div {...fadeIn(0.75)}>
+          <motion.div {...fadeIn(0.65)}>
             <button
               onClick={scrollToWork}
               style={{
@@ -150,7 +129,7 @@ export default function Home() {
                 (e.currentTarget as HTMLButtonElement).style.background = "transparent";
               }}
             >
-              View Work ↓
+              See how I think ↓
             </button>
           </motion.div>
         </div>

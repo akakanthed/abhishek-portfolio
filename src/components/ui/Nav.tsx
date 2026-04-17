@@ -42,13 +42,13 @@ export default function Nav() {
         href="/"
         style={{
           fontFamily: "var(--font-dm-serif), serif",
-          fontSize: "var(--text-lg)",
+          fontSize: "var(--text-xl)",
           color: "var(--text-primary)",
           textDecoration: "none",
           letterSpacing: "-0.01em",
         }}
       >
-        AK
+        Abhishek Kanthed
       </Link>
 
       {/* Right links */}

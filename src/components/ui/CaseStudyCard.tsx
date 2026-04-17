@@ -42,7 +42,7 @@ export default function CaseStudyCard({
         visible={isHovered}
         x={cursorPos.x}
         y={cursorPos.y}
-        label="View Case Study →"
+        label="Dig deeper →"
       />
 
       <motion.div

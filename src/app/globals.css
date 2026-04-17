@@ -33,6 +33,7 @@
   --text-3xl: 44px;
   --text-4xl: 56px;
   --text-5xl: 72px;
+  --text-6xl: 96px;
 
   /* Spacing Scale */
   --space-1:  4px;
@@ -104,3 +105,8 @@ body {
 h1, h2, h3 {
   font-family: var(--font-dm-serif), serif;
 }
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
