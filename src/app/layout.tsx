@@ -30,7 +30,7 @@ export default function RootLayout({
       lang="en"
       className={`${dmSerifDisplay.variable} ${inter.variable}`}
     >
-      <body>
+      <body suppressHydrationWarning>
         <SmoothScrollProvider>{children}</SmoothScrollProvider>
       </body>
     </html>

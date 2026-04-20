@@ -16,7 +16,6 @@ export default function InsightCallout({ text }: InsightCalloutProps) {
       transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
       style={{
         background: "var(--bg-elevated)",
-        borderLeft: "3px solid var(--accent-blue)",
         padding: "var(--space-5)",
         borderRadius: "8px",
         marginBottom: "var(--space-6)",

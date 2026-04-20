@@ -10,18 +10,20 @@ export const carloan: CaseStudy = {
   category: "FINTECH",
   metric: "Loan processing time reduced by ~2 days",
   heroImage: "https://framerusercontent.com/images/WVj6fG4yMc9gTKof0A59onEJ0Y.png?width=3704&height=3532",
-  glowColor: "amber",
+  cardImage: "/images/case-studies/carloan/card4.png",
+  overview: {
+    role: "Product Designer",
+    team: [
+      "Archit Aggrawal, PM",
+      "Harshit Sinha, Manager",
+    ],
+    timelineStatus: "6 months, launched in May 2022",
+    paragraphs: [
+      "CARS24 is a second-hand used car marketplace. To be able to afford a car, ~70% of users required loans. I worked with the consumer finance team at CARS24 for almost 2 years to make loans more accessible for used-car buyers. However, there were several macro and micro problems associated with doing so.",
+      "Loan-related issues were the second-highest reason for cancelled bookings after test-drives. Finance customers were waiting ~5 days for delivery while cash buyers got their cars in under a day. This project was a series of research-based experiments aimed at closing that gap — and ultimately shortened loan processing time by ~2 days.",
+    ],
+  },
   sections: [
-    {
-      id: "overview",
-      heading: "Overview",
-      content: [
-        {
-          type: "TextBlock",
-          text: "CARS24 is a second-hand used car marketplace. To be able to afford a car, ~70% of users required loans. I worked with the consumer finance team at CARS24 for almost 2 years to make loans more accessible for used-car buyers. However, there were several macro and micro problems associated with doing so.",
-        },
-      ],
-    },
     {
       id: "why-speed-mattered",
       heading: "Why Speed Mattered",
@@ -162,9 +164,11 @@ export const carloan: CaseStudy = {
         },
         {
           type: "ImageGrid",
-          images: [
-            { src: "https://framerusercontent.com/images/KKdhBwOyApWOp1Zb7aZuLoje8.png", },
-            { src: "https://framerusercontent.com/images/Skya8jlfOjOF287gtnJi5nzAo1s.png",},
+          rows: [
+            [
+              "https://framerusercontent.com/images/KKdhBwOyApWOp1Zb7aZuLoje8.png",
+              "https://framerusercontent.com/images/Skya8jlfOjOF287gtnJi5nzAo1s.png",
+            ],
           ],
         },
          ],

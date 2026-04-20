@@ -110,3 +110,30 @@ h1, h2, h3 {
   50% { opacity: 0; }
 }
 
+/* Case study two-column layouts: desktop uses the per-block split,
+   mobile stacks with a tighter gap. */
+.cs-two-col {
+  grid-template-columns: 1fr !important;
+  gap: 2rem !important;
+}
+/* First SubHeading in each overview column shouldn't have the usual top margin. */
+.cs-overview-group:first-child h3 { margin-top: 0 !important; }
+
+/* Image grid: mobile collapses every row to a single column, tighter padding/gap. */
+@media (max-width: 768px) {
+  .cs-image-grid-card {
+    padding: 1rem !important;
+    gap: 0.75rem !important;
+  }
+  .cs-image-grid-row {
+    grid-template-columns: 1fr !important;
+    gap: 0.75rem !important;
+  }
+}
+@media (min-width: 768px) {
+  .cs-two-col {
+    grid-template-columns: var(--cs-two-col-cols, 1fr 1fr) !important;
+    gap: 3rem !important;
+  }
+}
+

@@ -69,7 +69,8 @@ export default function ContactBlock() {
   return (
     <section
       style={{
-        background: "var(--bg-primary)",
+        position: "relative",
+        zIndex: 2,
         padding: "var(--space-10) var(--space-9)",
       }}
     >
@@ -222,7 +223,7 @@ export default function ContactBlock() {
             margin: 0,
           }}
         >
-          Design &amp; Code © Abhishek Kanthed 2025
+          Built with Claude Code
         </p>
       </div>
     </section>

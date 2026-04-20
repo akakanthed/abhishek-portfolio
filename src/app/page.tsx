@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Nav from "@/components/ui/Nav";
+import HeroContourBackground from "@/components/ui/HeroContourBackground";
 import Typewriter from "@/components/ui/Typewriter";
 import CaseStudyCard from "@/components/ui/CaseStudyCard";
 import ContactBlock from "@/components/ui/ContactBlock";
@@ -27,11 +28,14 @@ export default function Home() {
 
   return (
     <>
+      <HeroContourBackground />
       <Nav />
 
       {/* ── Hero ──────────────────────────────────────────────────── */}
       <section
         style={{
+          position: "relative",
+          zIndex: 2,
           minHeight: "100vh",
           display: "flex",
           flexDirection: "column",
@@ -41,6 +45,8 @@ export default function Home() {
       >
         <div
           style={{
+            position: "relative",
+            zIndex: 2,
             maxWidth: "900px",
             margin: "0 auto",
             width: "100%",
@@ -108,7 +114,10 @@ export default function Home() {
           </motion.div>
 
           {/* 5. CTA */}
-          <motion.div {...fadeIn(0.65)}>
+          <motion.div
+            {...fadeIn(0.65)}
+            style={{ display: "flex", gap: "12px", flexWrap: "wrap" }}
+          >
             <button
               onClick={scrollToWork}
               style={{
@@ -131,6 +140,43 @@ export default function Home() {
             >
               See how I think ↓
             </button>
+            <a
+              href="https://www.linkedin.com/in/akanthed/"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "8px",
+                fontFamily: "var(--font-inter), sans-serif",
+                fontSize: "var(--text-sm)",
+                color: "var(--text-primary)",
+                background: "transparent",
+                border: "1px solid var(--border-default)",
+                padding: "10px 20px",
+                borderRadius: "8px",
+                textDecoration: "none",
+                cursor: "pointer",
+                transition: "background var(--duration-fast), border-color var(--duration-fast)",
+              }}
+              onMouseEnter={(e) => {
+                (e.currentTarget as HTMLAnchorElement).style.background = "var(--bg-elevated)";
+              }}
+              onMouseLeave={(e) => {
+                (e.currentTarget as HTMLAnchorElement).style.background = "transparent";
+              }}
+            >
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                aria-hidden="true"
+              >
+                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.852 3.37-1.852 3.602 0 4.267 2.37 4.267 5.455v6.288zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.063 2.063 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+              </svg>
+              Connect
+            </a>
           </motion.div>
         </div>
       </section>
@@ -139,6 +185,8 @@ export default function Home() {
       <section
         id="work"
         style={{
+          position: "relative",
+          zIndex: 2,
           paddingTop: "var(--space-10)",
           paddingBottom: "var(--space-10)",
         }}
@@ -183,9 +231,8 @@ export default function Home() {
                 company={cs.company}
                 category={cs.category}
                 metric={cs.metric}
-                thumbnailSrc={cs.heroImage}
+                thumbnailSrc={cs.cardImage}
                 slug={`/case-studies/${cs.slug}`}
-                glowColor={cs.glowColor}
                 index={i}
               />
             ))}

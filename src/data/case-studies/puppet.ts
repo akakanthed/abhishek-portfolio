@@ -9,27 +9,24 @@ export const puppet: CaseStudy = {
   company: "Perforce / Puppet",
   category: "DEVOPS",
   metric: "Reduce upgrade downtime from weeks to hours",
-  heroImage: "https://framerusercontent.com/images/CUxRUe7yDJ7In8BrETyfjV26wk.png",
-  glowColor: "blue",
+  heroImage: "/images/case-studies/puppet/hero1.png",
+  cardImage: "/images/case-studies/puppet/puppet_card.png",
+  overview: {
+    role: "UX Lead",
+    team: [
+      "Saurabh Karwa, PM",
+      "Parth Sabnis, EM",
+      "Joe Wagner, DM",
+      "Paulo Obasi, UXR",
+    ],
+    timelineStatus: "2 months, \n launched in Dec 2024 \n at [Puppet Forge](https://forge.puppet.com/)",
+    paragraphs: [
+      "Puppet is a configuration management tool that helps system administrators keep thousands of machines consistent and compliant. Instead of manually updating each server, teams write instructions in code. Puppet then automatically applies those instructions to all machines, keeping everything consistent. This saves time and prevents mistakes.",
+      "But Puppet quietly did its job in the background, often fading from view. Most customers don't think about it until their version reaches end-of-life. That's when things become urgent and stressful.",
+      "I worked closely with Product Managers and Engineers to align different teams under one vision, quickly learning the technical ins and outs to ensure my designs were realistic.",
+    ],
+  },
   sections: [
-    {
-      id: "overview",
-      heading: "Overview",
-      content: [
-        {
-          type: "TextBlock",
-          text: "Puppet is a configuration management tool that helps system administrators keep thousands of machines consistent and compliant. Instead of manually updating each server, teams write instructions in code. Puppet then automatically applies those instructions to all machines, keeping everything consistent. This saves time and prevents mistakes.",
-        },
-        {
-          type: "TextBlock",
-          text: "But Puppet quietly did its job in the background, often fading from view. Most customers don't think about it until their version reaches end-of-life. That's when things become urgent and stressful.",
-        },
-        {
-          type: "TextBlock",
-          text: "I worked closely with Product Managers and Engineers to align different teams under one vision, quickly learning the technical ins and outs to ensure my designs were realistic. This project is live and currently being used by Puppet customers worldwide. You can explore the Compatibility Checker directly on the Puppet Forge — note: a free account may be needed to test full functionality.",
-        },
-      ],
-    },
     {
       id: "the-cost-of-inaction",
       heading: "The Cost of Inaction",
@@ -48,7 +45,7 @@ export const puppet: CaseStudy = {
         },
         {
           type: "TextBlock",
-          text: "**Short term**: Simplify the transition from Puppet 7 to Puppet 8. **Long term**: Help system administrators feel confident when applying regular module updates.",
+          text: "**Short term**: Simplify the transition from Puppet 7 to Puppet 8. <br /> **Long term**: Help system administrators feel confident when applying regular module updates.",
         },
       ],
     },
@@ -65,14 +62,13 @@ export const puppet: CaseStudy = {
           text: "Ideally, users should have updated these modules frequently. Instead, most followed a 'if it isn't broken, don't touch it' approach. They would leave their setup alone for years until a major Puppet release forced them to change everything at once. This created a 'cliff-edge' effect where years of technical debt piled up.",
         },
         {
-          type: "FullBleedImage",
-          src: "https://framerusercontent.com/images/u2iPqphG7tREIkQ6UIjiSNtfJk.png",
-        },
-        {
           type: "ImageGrid",
-          images: [
-            { src: "https://framerusercontent.com/images/vsa0OcDw8hfT6MQAYhVcdWKfXWs.png" },
-            { src: "https://framerusercontent.com/images/F3mozVi1P0NXGveQMKWp21oI.png" },
+          rows: [
+            ["/images/case-studies/puppet/processhi.png"],
+            [
+              "https://framerusercontent.com/images/vsa0OcDw8hfT6MQAYhVcdWKfXWs.png",
+              "https://framerusercontent.com/images/F3mozVi1P0NXGveQMKWp21oI.png",
+            ],
           ],
         },
         {
@@ -94,8 +90,11 @@ export const puppet: CaseStudy = {
           text: "When we began exploring solutions, it was clear that customers weren't starting from scratch. Across the Puppet community, teams had stitched together a mix of different tools and manual processes to manage their collection of modules.",
         },
         {
-          type: "FullBleedImage",
-          src: "https://framerusercontent.com/images/wHEGKemiGTpZk0yW3l1agkdyPiQ.png",
+          type: "ImageGrid",
+          rows: [
+            ["/images/case-studies/puppet/tools.png"],
+          ],
+          maxWidth: "800px",
         },
         {
           type: "TextBlock",
@@ -133,7 +132,8 @@ export const puppet: CaseStudy = {
         },
         {
           type: "FullBleedImage",
-          src: "https://framerusercontent.com/images/2bDBs7tMWIYSHtkOj3tC3uBZU.png",
+          src: "/images/case-studies/puppet/s1.png",
+          variant: "browser",
         },
         {
           type: "TextBlock",
@@ -141,7 +141,8 @@ export const puppet: CaseStudy = {
         },
         {
           type: "FullBleedImage",
-          src: "https://framerusercontent.com/images/0sCsWnrKOnJQ2NH1e8ni8Ghu3I.png",
+          src: "/images/case-studies/puppet/report.png",
+          variant: "browser",
         },
         {
           type: "TextBlock",
@@ -149,7 +150,8 @@ export const puppet: CaseStudy = {
         },
         {
           type: "FullBleedImage",
-          src: "https://framerusercontent.com/images/RQQBXDI0TautbmiN7BCD0Vzo4o.png",
+          src: "/images/case-studies/puppet/diff.png",
+          variant: "browser",
         },
         {
           type: "TextBlock",
@@ -157,7 +159,8 @@ export const puppet: CaseStudy = {
         },
         {
           type: "FullBleedImage",
-          src: "https://framerusercontent.com/images/rQZ5e0qAi3QUg1luqRWH7SibKQI.png",
+          src: "/images/case-studies/puppet/tree.png",
+          variant: "browser",
         },
       ],
     },
@@ -178,8 +181,10 @@ export const puppet: CaseStudy = {
           text: "Teams could now identify outdated modules and coordinate upgrade plans in the same tool they were already using.",
         },
         {
-          type: "FullBleedImage",
-          src: "https://framerusercontent.com/images/vtfh4Q13PYeSQRsQg4HSxH7PgzY.png",
+          type: "ImageGrid",
+          rows: [
+            ["https://framerusercontent.com/images/vtfh4Q13PYeSQRsQg4HSxH7PgzY.png"],
+          ],
         },
       ],
     },
@@ -202,6 +207,7 @@ export const puppet: CaseStudy = {
         {
           type: "FullBleedImage",
           src: "https://framerusercontent.com/images/1ZXTn6EmnFXE4zprZV9RrtKCXE.png",
+          variant: "browser",
         },
         {
           type: "TextBlock",
@@ -210,6 +216,7 @@ export const puppet: CaseStudy = {
         {
           type: "FullBleedImage",
           src: "https://framerusercontent.com/images/isiWrElISSNbJNRzlG5KFnQ4Rkc.png",
+          variant: "browser",
         },
       ],
     },
@@ -236,6 +243,7 @@ export const puppet: CaseStudy = {
         {
           type: "FullBleedImage",
           src: "https://framerusercontent.com/images/ySulpHeIcP3BueDSZ6ZTM9aB4.png",
+          variant: "browser",
         },
         {
           type: "TextBlock",
@@ -244,6 +252,7 @@ export const puppet: CaseStudy = {
         {
           type: "FullBleedImage",
           src: "https://framerusercontent.com/images/Tmlmb17Ky1AcnUDdwfYmenXleFo.png",
+          variant: "browser",
         },
       ],
     },

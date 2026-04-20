@@ -29,13 +29,19 @@ const fadeUp = {
   transition:  { duration: 0.5, ease: [0.16, 1, 0.3, 1] as const },
 };
 
-/** Use plain <img> for external URLs, Next.js <Image> for local /public assets. */
 function Img({ src, alt, className }: { src: string; alt: string; className?: string }) {
-  if (src.startsWith("http://") || src.startsWith("https://")) {
-    // eslint-disable-next-line @next/next/no-img-element
-    return <img src={src} alt={alt} className={className} style={{ display: "block", width: "100%", height: "auto" }} />;
-  }
-  return <Image src={src} alt={alt} width={1200} height={800} className={className} />;
+  return (
+    <Image
+      src={src}
+      alt={alt}
+      width={1600}
+      height={1000}
+      quality={85}
+      sizes="(max-width: 768px) 100vw, 600px"
+      className={className}
+      style={{ display: "block", width: "100%", height: "auto" }}
+    />
+  );
 }
 
 export default function MockupFrame({

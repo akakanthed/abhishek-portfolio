@@ -10,22 +10,16 @@ export const los: CaseStudy = {
   category: "FINTECH · ENTERPRISE",
   metric: "Improved loan origination template creation across leading banks",
   heroImage: "https://framerusercontent.com/images/fT2zrwTh3ImAeccFhJoI1xsvA.png",
-  glowColor: "indigo",
+  cardImage: "/images/case-studies/los/loscard.png",
+  overview: {
+    role: "UX Design Consultant",
+    timelineStatus: "Nov 2020 – Jan 2021",
+    paragraphs: [
+      "Loan Origination Solution (LOS) is part of an industry-leading digital banking solution suite used by banks in around 100 countries to serve over 1 billion customers. Origination is a lengthy process followed by banks to investigate the financial health of a borrower — this helps the bank negotiate terms and agree upon the loan amount to be offered.",
+      "Financial statements — Income Statement, Balance Sheet, and Cash Flow Statement — are key to investigating the financial health of any commercial organisation. As a UX consultant on this engagement, I focused on the template-authoring workflow that analysts use to standardize these statements across borrowers — turning a slow, error-prone manual process into a collaborative tool used by leading banks.",
+    ],
+  },
   sections: [
-    {
-      id: "overview",
-      heading: "Overview",
-      content: [
-        {
-          type: "TextBlock",
-          text: "Loan Origination Solution (LOS) is part of an industry-leading digital banking solution suite used by banks in around 100 countries to serve over 1 billion customers. Origination is a lengthy process followed by banks to investigate the financial health of a borrower — this helps the bank negotiate terms and agree upon the loan amount to be offered.",
-        },
-        {
-          type: "TextBlock",
-          text: "Financial statements — Income Statement, Balance Sheet, and Cash Flow Statement — are key to investigating the financial health of any commercial organisation.",
-        },
-      ],
-    },
     {
       id: "the-problem",
       heading: "The Problem",

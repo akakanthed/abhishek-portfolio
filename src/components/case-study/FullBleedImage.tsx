@@ -1,14 +1,18 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
+import ImageFrame, { type ImageVariant } from "./lib/ImageFrame";
 
 interface FullBleedImageProps {
   src: string;
   caption?: string;
   maxWidth?: string;
+  variant?: ImageVariant;
+  priority?: boolean;
 }
 
-export default function FullBleedImage({ src, caption, maxWidth }: FullBleedImageProps) {
+export default function FullBleedImage({ src, caption, maxWidth, variant, priority }: FullBleedImageProps) {
   return (
     <div
       style={{
@@ -23,20 +27,19 @@ export default function FullBleedImage({ src, caption, maxWidth }: FullBleedImag
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-        style={{
-          borderRadius: "12px",
-          border: "1px solid var(--mockup-border)",
-          overflow: "hidden",
-          boxShadow:
-            "0 0 60px var(--mockup-glow-blue), 0 2px 4px rgba(0,0,0,0.4)",
-        }}
       >
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src={src}
-          alt={caption || ""}
-          style={{ display: "block", width: "100%", height: "auto" }}
-        />
+        <ImageFrame variant={variant}>
+          <Image
+            src={src}
+            alt={caption || ""}
+            width={1760}
+            height={1100}
+            quality={85}
+            priority={priority}
+            sizes="(max-width: 768px) 100vw, 880px"
+            style={{ display: "block", width: "100%", height: "auto" }}
+          />
+        </ImageFrame>
       </motion.div>
 
       {caption && (

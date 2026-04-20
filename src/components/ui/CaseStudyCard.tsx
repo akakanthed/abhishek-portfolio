@@ -6,8 +6,6 @@ import { useState } from "react";
 import MockupFrame from "./MockupFrame";
 import CursorLabel from "./CursorLabel";
 
-type GlowColor = "blue" | "indigo" | "amber";
-
 interface CaseStudyCardProps {
   title: string;
   company: string;
@@ -15,7 +13,6 @@ interface CaseStudyCardProps {
   metric: string;
   thumbnailSrc: string;
   slug: string;
-  glowColor: GlowColor;
   index: number;
 }
 
@@ -26,7 +23,6 @@ export default function CaseStudyCard({
   metric,
   thumbnailSrc,
   slug,
-  glowColor: _glowColor,
   index,
 }: CaseStudyCardProps) {
   const [isHovered, setIsHovered] = useState(false);
@@ -79,13 +75,21 @@ export default function CaseStudyCard({
                 cursor: isHovered ? "none" : "auto",
               }}
             >
-              <MockupFrame
-                src={thumbnailSrc}
-                alt={title}
-                type="card"
-                glow={false}
-                className="h-full"
-              />
+              <div
+                style={{
+                  height: "100%",
+                  transform: isHovered ? "scale(1.05)" : "scale(1)",
+                  transition: "transform 500ms var(--ease-default)",
+                }}
+              >
+                <MockupFrame
+                  src={thumbnailSrc}
+                  alt={title}
+                  type="card"
+                  glow={false}
+                  className="h-full"
+                />
+              </div>
             </div>
 
             {/* ── Meta row ─────────────────────────────────────────── */}

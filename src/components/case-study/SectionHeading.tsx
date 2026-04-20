@@ -19,8 +19,6 @@ export default function SectionHeading({ heading, id }: SectionHeadingProps) {
         fontFamily: "var(--font-dm-serif), serif",
         fontSize: "var(--text-2xl)",
         color: "var(--text-primary)",
-        borderLeft: "2px solid var(--accent-blue)",
-        paddingLeft: "var(--space-4)",
         marginBottom: "var(--space-5)",
         lineHeight: 1.2,
       }}

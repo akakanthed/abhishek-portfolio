@@ -1,9 +1,10 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { ArrowLeft, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { getCaseStudy, caseStudies } from "@/data/case-studies";
 import Nav from "@/components/ui/Nav";
 import ContactBlock from "@/components/ui/ContactBlock";
+import StickyBackButton from "@/components/case-study/StickyBackButton";
 import SectionHeading from "@/components/case-study/SectionHeading";
 import TextBlock from "@/components/case-study/TextBlock";
 import InsightCallout from "@/components/case-study/InsightCallout";
@@ -12,6 +13,10 @@ import FullBleedImage from "@/components/case-study/FullBleedImage";
 import PullQuote from "@/components/case-study/PullQuote";
 import ImageGrid from "@/components/case-study/ImageGrid";
 import ListBlock from "@/components/case-study/ListBlock";
+import TwoColText from "@/components/case-study/TwoColText";
+import TwoColImageText from "@/components/case-study/TwoColImageText";
+import SubHeading from "@/components/case-study/SubHeading";
+import OverviewSection from "@/components/case-study/OverviewSection";
 import type { ContentBlock } from "@/data/case-studies/types";
 
 export async function generateStaticParams() {
@@ -22,18 +27,32 @@ function renderBlock(block: ContentBlock, i: number) {
   switch (block.type) {
     case "TextBlock":
       return <TextBlock key={i} text={block.text} />;
+    case "SubHeading":
+      return <SubHeading key={i} text={block.text} />;
     case "InsightCallout":
       return <InsightCallout key={i} text={block.text} />;
     case "MetricHighlight":
       return <MetricHighlight key={i} stat={block.stat} label={block.label} />;
     case "FullBleedImage":
-      return <FullBleedImage key={i} src={block.src} caption={block.caption} maxWidth={block.maxWidth} />;
+      return <FullBleedImage key={i} src={block.src} caption={block.caption} maxWidth={block.maxWidth} variant={block.variant} />;
     case "PullQuote":
       return <PullQuote key={i} text={block.text} />;
     case "ImageGrid":
-      return <ImageGrid key={i} images={block.images} maxWidth={block.maxWidth} />;
+      return <ImageGrid key={i} rows={block.rows} caption={block.caption} number={block.number} maxWidth={block.maxWidth} />;
     case "ListBlock":
       return <ListBlock key={i} items={block.items} ordered={block.ordered} />;
+    case "TwoColText":
+      return <TwoColText key={i} left={block.left} right={block.right} split={block.split} />;
+    case "TwoColImageText":
+      return (
+        <TwoColImageText
+          key={i}
+          image={block.image}
+          text={block.text}
+          imagePosition={block.imagePosition}
+          split={block.split}
+        />
+      );
   }
 }
 
@@ -53,32 +72,9 @@ export default async function CaseStudyPage({
     <>
       <Nav />
 
-      <main style={{ paddingTop: "80px", minHeight: "100vh" }}>
+      <StickyBackButton />
 
-        {/* ── Back link ─────────────────────────────────────────────── */}
-        <div
-          style={{
-            maxWidth: "740px",
-            margin: "0 auto",
-            padding: "var(--space-7) 24px var(--space-5)",
-          }}
-        >
-          <Link
-            href="/"
-            style={{
-              display: "inline-flex",
-              alignItems: "center",
-              gap: "8px",
-              fontFamily: "var(--font-inter), sans-serif",
-              fontSize: "var(--text-sm)",
-              color: "var(--text-muted)",
-              textDecoration: "none",
-            }}
-          >
-            <ArrowLeft size={14} />
-            Back
-          </Link>
-        </div>
+      <main style={{ paddingTop: "calc(80px + var(--space-7))", minHeight: "100vh" }}>
 
         {/* ── Hero ──────────────────────────────────────────────────── */}
         <div
@@ -128,62 +124,24 @@ export default async function CaseStudyPage({
           >
             {cs.subtitle}
           </p>
-
-          {/* Metadata chips */}
-          <div
-            style={{
-              display: "flex",
-              flexWrap: "wrap",
-              gap: "var(--space-3)",
-            }}
-          >
-            {[
-              { label: "Role", value: cs.role },
-              { label: "Timeline", value: cs.timeline },
-              { label: "Company", value: cs.company },
-            ].map(({ label, value }) => (
-              <div
-                key={label}
-                style={{
-                  background: "var(--bg-elevated)",
-                  border: "1px solid var(--border-subtle)",
-                  borderRadius: "8px",
-                  padding: "8px 14px",
-                  fontFamily: "var(--font-inter), sans-serif",
-                  fontSize: "var(--text-xs)",
-                }}
-              >
-                <span style={{ color: "var(--text-muted)" }}>{label} · </span>
-                <span style={{ color: "var(--text-primary)" }}>{value}</span>
-              </div>
-            ))}
-          </div>
         </div>
 
-        {/* ── Hero image (full-bleed to 1100px) ─────────────────────── */}
-        <div
-          style={{
-            maxWidth: "1100px",
-            margin: "0 auto var(--space-10)",
-            padding: "0 24px",
-          }}
-        >
+        {/* ── Hero image — borderless full-bleed ─────────────────────── */}
+        <FullBleedImage src={cs.heroImage} variant="borderless" priority />
+
+
+        {/* ── Overview (role / team / timeline & status + overview copy) ── */}
+        {cs.overview && (
           <div
             style={{
-              borderRadius: "12px",
-              border: "1px solid var(--mockup-border)",
-              overflow: "hidden",
-              boxShadow: `0 0 80px var(--mockup-glow-${cs.glowColor}), 0 4px 24px rgba(0,0,0,0.5)`,
+              maxWidth: "1100px",
+              margin: "0 auto var(--space-10)",
+              padding: "0 24px",
             }}
           >
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src={cs.heroImage}
-              alt={cs.title}
-              style={{ display: "block", width: "100%", height: "auto" }}
-            />
+            <OverviewSection overview={cs.overview} />
           </div>
-        </div>
+        )}
 
         {/* ── Body sections ─────────────────────────────────────────── */}
         {cs.sections.map((section) => (
@@ -204,6 +162,23 @@ export default async function CaseStudyPage({
             {section.content.map((block, i) => {
               if (block.type === "FullBleedImage" || block.type === "ImageGrid") {
                 return renderBlock(block, i);
+              }
+              if (
+                block.type === "TwoColText" ||
+                block.type === "TwoColImageText"
+              ) {
+                return (
+                  <div
+                    key={i}
+                    style={{
+                      maxWidth: "1100px",
+                      margin: "0 auto",
+                      padding: "0 24px",
+                    }}
+                  >
+                    {renderBlock(block, i)}
+                  </div>
+                );
               }
               return (
                 <div

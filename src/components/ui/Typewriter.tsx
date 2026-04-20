@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
+import { setHeroPhase } from "./heroPhase";
 
 const PHRASES = [
   "the hardest problems make the best design work.",
@@ -33,6 +34,7 @@ export default function Typewriter({ phrases = PHRASES }: { phrases?: string[] }
     let i = 0;
     let j = 0;
     let phase: "type" | "hold" | "back" | "pause" = "type";
+    setHeroPhase(0);
 
     const tick = () => {
       const phrase = phrases[i];
@@ -59,6 +61,7 @@ export default function Typewriter({ phrases = PHRASES }: { phrases?: string[] }
         timerRef.current = setTimeout(tick, BACK_MS);
       } else {
         i = (i + 1) % phrases.length;
+        setHeroPhase(i);
         phase = "type";
         timerRef.current = setTimeout(tick, TYPE_MS);
       }
