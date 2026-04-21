@@ -9,7 +9,7 @@ export const carloan: CaseStudy = {
   company: "CARS24",
   category: "FINTECH",
   metric: "Loan processing time reduced by ~2 days",
-  heroImage: "https://framerusercontent.com/images/WVj6fG4yMc9gTKof0A59onEJ0Y.png?width=3704&height=3532",
+  heroImage: "/images/case-studies/carloan/hero2.png",
   cardImage: "/images/case-studies/carloan/card4.png",
   overview: {
     role: "Product Designer",
