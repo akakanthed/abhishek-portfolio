@@ -2,25 +2,27 @@ import type { CaseStudy } from "./types";
 
 export const carloan: CaseStudy = {
   slug: "carloan",
-  title: "Helping buyers get car loans super fast",
-  subtitle: "A series of research-based experiments helped shorten the loan processing time by ~2 days.",
+  title: "Redefining the loan experience for used-car buyers",
+  subtitle:
+    "Redesigning the end-to-end financing journey at CARS24 — from discovery to delivery — through research, experimentation, and systems thinking.",
   role: "Product Designer",
-  timeline: "6 months",
+  timeline: "2 years",
   company: "CARS24",
   category: "FINTECH",
   metric: "Loan processing time reduced by ~2 days",
-  heroImage: "/images/case-studies/carloan/hero2.png",
+  heroVideo: "/images/case-studies/carloan/hero.mp4",
   cardImage: "/images/case-studies/carloan/card4.png",
   overview: {
     role: "Product Designer",
     team: [
       "Archit Aggrawal, PM",
       "Harshit Sinha, Manager",
+      "Nishanth Prabhu, UX Designer",
     ],
-    timelineStatus: "6 months, launched in May 2022",
+    timelineStatus: "2 years with the consumer finance team",
     paragraphs: [
-      "CARS24 is a second-hand used car marketplace. To be able to afford a car, ~70% of users required loans. I worked with the consumer finance team at CARS24 for almost 2 years to make loans more accessible for used-car buyers. However, there were several macro and micro problems associated with doing so.",
-      "Loan-related issues were the second-highest reason for cancelled bookings after test-drives. Finance customers were waiting ~5 days for delivery while cash buyers got their cars in under a day. This project was a series of research-based experiments aimed at closing that gap — and ultimately shortened loan processing time by ~2 days.",
+      "CARS24 is a second-hand used car marketplace. ~70% of buyers needed loans to afford a car. I spent close to 2 years with the consumer finance team, redesigning the entire loan experience — from discovery and pre-approval to post-booking formalities and order tracking. The loan journey touched every stage of the car buying experience, and each stage had its own set of problems.",
+      "Loan-related issues were the second-highest reason for cancelled bookings. Finance customers waited ~5 days for delivery while cash buyers got their cars in under a day. Through a series of research-driven experiments and systemic redesigns, we shortened loan processing time by ~2 days and significantly improved booking completion rates.",
     ],
   },
   sections: [
@@ -29,149 +31,238 @@ export const carloan: CaseStudy = {
       heading: "Why Speed Mattered",
       content: [
         {
-          type: "InsightCallout",
-          text: "Loan-related issues ranked as the second highest reason for customers canceling their car bookings after test-drives. An in-depth analysis helped pinpoint actual user problems: uncertainty surrounding loan approvals, and inconsistencies in offer communication.",
+          type: "MetricHighlight",
+          stat: "5 days",
+          label: "average delivery time for finance customers vs ~1 day for cash buyers",
         },
         {
           type: "TextBlock",
-          text: "On average, the time taken to deliver a car (after a test-drive) with finance involved was ~5 days, compared to less than 1 day for non-finance customers.",
-        },
-        {
-          type: "MetricHighlight",
-          stat: "5 days",
-          label: "average delivery time for finance customers vs. <1 day for cash buyers",
+          text: "The gap was driven by multiple friction points across the loan journey; from users not knowing about loans early enough, to manual processes post-booking that left everyone confused. We needed to fix the entire pipeline, not just one step.",
         },
       ],
     },
+    {
+      id: "the-full-picture",
+      heading: "The Full Picture",
+      content: [
+        {
+          type: "TextBlock",
+          text: "The loan journey spanned the entire car buying journey. Over 2 years, I redesigned every stage: discovery entry points, pre-approval, bank statement sharing, app navigation, the post-booking experience, order summary, and loan calculators.",
+        },
+        {
+          type: "FullBleedImage",
+          src: "/images/case-studies/carloan/Journeymap.png",
+          variant: "borderless",
+        },
+      ],
+    },
+    {
+      id: "getting-users-in-early",
+      heading: "Getting Users In Early",
+      content: [
+        {
+          type: "TextBlock",
+          text: "Loans were only visible during checkout. This felt more like a blocker to booking the test-drive rather than actually helping the user — since their goal at that moment was to book the test-drive, not figure out financing.",
+        },
+        {
+          type: "InsightCallout",
+          text: "Most users dropped the checkout flow entirely or opted for cash as the preferred mode of payment, even when they actually needed financing.",
+        },
+        {
+          type: "TextBlock",
+          text: "We needed to surface loans much earlier in the journey. We created entry points from the homepage, built a priming experience that explained loan features upfront, and showed users their pre-approved offer before they'd even booked a test-drive.",
+        },
+        // IMAGE 3.0 — image-grid, two app screens side by side, default variant
+        // Left: Homepage with loan entry points. Right: The loan priming/features page.
+        {
+          type: "FullBleedImage",
+          src: "/images/case-studies/carloan/entrypoint.png",
+          variant: "borderless",
+          maxWidth: "800px",
+        },
+        {
+          type: "FullBleedImage",
+          src: "/images/case-studies/carloan/preapproval.png",
+          variant: "borderless",
+          maxWidth: "800px",
+        },
+        {
+          type: "InsightCallout",
+          text: "Users who were pre-approved from the top of the funnel shared approximately 32% more banking information on the app compared to users pre-approved from checkout.",
+        },        
+      ],
+    },
+    
     {
       id: "the-bottleneck",
       heading: "The Bottleneck: Bank Statements",
       content: [
         {
           type: "TextBlock",
-          text: "Upon investigation into prolonged loan approval times, the primary hurdle was acquiring bank statements from users. Banking data was crucial for categorizing customers by risk profile, enabling the prioritization of on-ground and credit team efforts.",
+          text: "On investigating prolonged loan approval times, the primary hurdle was acquiring bank statements from users. Our data science team had built a decision engine that could classify users by risk profile; but it couldn't work until bank statements were provided.",
         },
         {
           type: "TextBlock",
-          text: "Our data science team had implemented a decision engine capable of classifying users into green, amber, and red risk profiles. Users in the green category could be approved solely based on their bank statements, streamlining their experience akin to cash-paying users. However, the engine couldn't identify these users until their bank statements were provided.",
+          text: "Despite users having the ability to share bank statements via the app, most were still shared manually; leading to a cumbersome back-and-forth between agents and customers.",
+        },
+        {
+          type: "TextBlock",
+          text: "Triangulating quantitative data with qualitative research and recorded sessions helped uncover the core problems:",
+        },
+        {
+          type: "InsightCallout",
+          text: "Users assumed the loan was car-specific. They wanted to put in the effort only once they had finalised a car.",
+        },
+        {
+          type: "InsightCallout",
+          text: "Users not having the PDF handy dropped off and tried to continue sharing after getting the document. This was a major drop-off point.",
+        },
+        {
+          type: "TextBlock",
+          text: "We ran a series of experiments targeting different stages of the user journey. The checkout variant with bank statements optional during test-drive booking performed significantly better than the variant that required it upfront.",
+        },
+        {
+          type: "InsightCallout",
+          text: "The optional variant not only improved booking completion rates but also doubled the number of bookings with bank statements, compared to the mandatory variant. This enabled us to gradually remove the entire loan flow from checkout and shift it to the post-booking experience.",
         },
         {
           type: "FullBleedImage",
-          src: "https://framerusercontent.com/images/TrC3TTs2nz9RWgv3cIHVITbRha8.png",
+          src: "/images/case-studies/carloan/checkout.png",
+          variant: "borderless",
           maxWidth: "800px",
         },
         {
-          type: "InsightCallout",
-          text: "Despite our product's feature allowing users to share bank statements before booking, most statements were still shared manually — leading to a cumbersome back-and-forth process between agents and customers. This directly impacted car bookings.",
-        },
-        
-      ],
-    },
-    {
-      id: "user-research",
-      heading: "Understanding the User",
-      content: [
-        {
           type: "TextBlock",
-          text: "Triangulating quantitative data with qualitative research insights and recorded user sessions helped uncover various user problems:",
-        },
-        {
-          type: "InsightCallout",
-          text: "Users assumed the loan was car-specific — they wanted to put in the effort of sharing bank statements only once they had finalised a car after the test-drive.",
-        },
-        {
-          type: "InsightCallout",
-          text: "Users new to the entire idea of online loans were just continuing the flow without knowing what they were actually doing.",
-        },
-        {
-          type: "InsightCallout",
-          text: "Users not having the PDF handy dropped off and tried to continue sharing after getting the document.",
-        },
-        {
-  type: "TextBlock",
-  text: "Delving deeper helped us uncover a task framework:",
-},
-{
-  type: "ListBlock",
-  ordered: true,
-  items: [
-    "Realisation of the need for banking",
-    "Evaluation of options to share bank statements",
-    "Delving into details",
-    "Fulfilling the requirements",
-    "Expectation of feedback for the transaction",
-  ]
-},
-        {
-          type: "TextBlock",
-          text: "We utilised this framework to formulate various hypotheses at different stages of the user journey. Subsequently, we tested the designs based on these hypotheses using A/B testing.",
-        },
-      ],
-    },
-    {
-      id: "experiments",
-      heading: "The Experiments",
-      content: [
-        {
-          type: "TextBlock",
-          text: "**Hypothesis 1 (in the realisation phase)**:<br />Educating users about the loan process right from the start would better prepare them for sharing bank statements at a later stage.",
+          text: "We also improved the PDF upload experience: communicating specific months instead of a vague range, helping users download statements from their bank's portal, and introducing a feedback loop for incorrect or partial uploads.",
         },
         {
           type: "FullBleedImage",
-          src: "https://framerusercontent.com/images/rFImG9lm43ppimk84gO5IPYmJOk.png",
+          src: "/images/case-studies/carloan/pdf1.png",
+          variant: "borderless",
           maxWidth: "800px",
-        },
-        {
-          type: "InsightCallout",
-          text: "Impact: ToF pre-approved users shared approximately 32% more banking information on the app compared to users pre-approved from checkout.",
-        },
-        {
-          type: "TextBlock",
-          text: "**Hypothesis 2**:<br />Making bank statements optional while clearly communicating their importance during the test-drive booking would encourage users to provide them later in the journey while also improving the booking completion rate.",
         },
         {
           type: "FullBleedImage",
-          src: "https://framerusercontent.com/images/dZFGcP70PlbpSB0zEBL9izMqPeY.png",
+          src: "/images/case-studies/carloan/pdf2.png",
+          variant: "borderless",
           maxWidth: "800px",
         },
         {
-          type: "InsightCallout",
-          text: "The variant with optional banking during test-drive booking performed significantly better. It not only improved booking completion rates but also doubled the number of bookings with bank statements (measured across all users entering checkout), compared to the mandatory banking variant. This insight ultimately enabled us to shift the entire loan flow to post-booking.",
-        },
-        
-        {
-          type: "TextBlock",
-          text: "It was evident from data that users preferred the PDF upload method for sharing. Research indicated that users often shared incomplete bank statements. We began with a phased approach: communicating specific months instead of a range, assisting users in downloading bank statements from net-banking, and introducing nudges to encourage users to directly use net-banking credentials.",
+          type: "FullBleedImage",
+          src: "/images/case-studies/carloan/pdf3.png",
+          variant: "borderless",
+          maxWidth: "800px",
         },
       ],
     },
     {
-      id: "pdf-upload-improvements",
-      heading: "Improving the sharing experience",
+      id: "post-booking-template",
+      heading: "Redesigning the Post-Booking Experience",
       content: [
         {
           type: "TextBlock",
-          text: "Between the two options for sharing bank statements, net banking was more convenient; but users were more familiar with the PDF upload method. It gave them a greater sense of control and security—something the metrics also clearly reflected.",
+          text: "After booking a test-drive, the loan experience was largely manual. There were some digital steps, but they were inconsistent and incomplete. The relationship assistant communicated different things, the loan assistant communicated others, and the app showed information that contradicted both.",
         },
         {
-          type:"FullBleedImage",
-          src: "https://framerusercontent.com/images/aOizG2MCOsdIUxaxIlrwW7PG7A.png",
-          maxWidth: "400px",
+          type: "InsightCallout",
+          text: "Users had no single source of truth for what needed to happen between booking a test-drive and getting their car delivered.",
         },
         {
           type: "TextBlock",
-          text: "However, lot of users were either dropping-off while sharing or sharing incorrect or partial bank statements. To address this, we made some improvements to the PDF upload flow:<br />1) Clearly communicated the specific months required instead of a vague range <br /> 2) Helped users in downloading correct bank statements from their banks' portal <br /> 3) Introduced contextual nudges to use net-banking as an alternative. <br /> 4) Introduced a feedback loop that let user know about incorrect or partial bank statements and helped them share the correct ones.",
+          text: "Every customer and car was unique.Different loan situations, various documents required, multiple car formalities. We needed a scalable system that could handle these variations while keeping the experience consistent.",
         },
         {
-          type: "ImageGrid",
-          rows: [
-            [
-              "https://framerusercontent.com/images/KKdhBwOyApWOp1Zb7aZuLoje8.png",
-              "https://framerusercontent.com/images/Skya8jlfOjOF287gtnJi5nzAo1s.png",
-            ],
-          ],
+          type: "SubHeading",
+          text: "The Three-Tier Template",
         },
-         ],
+        {
+          type: "TextBlock",
+          text: "We designed a template system with three levels of depth: Card → Overlay → Full Page. Cards gave users a complete picture of all steps needed to complete their formalities. Tapping a card opened an overlay with contextual details; keeping users oriented while surfacing more information. From the overlay, users could open a full-page experience to take action.",
+        },
+        // IMAGE 6.0 — single-image, borderless
+        // Conceptual diagram of the three-tier model: Card → Overlay → Full Page.
+        // Under each: "See all steps" → "Get context" → "Take action".
+        {
+          type: "FullBleedImage",
+          src: "/images/case-studies/carloan/template.png",
+          variant: "borderless",
+        },
+        // IMAGE 6.1 — image-grid, three real screenshots in one row
+        // Card list, overlay for one step, full-page action screen.
+        {
+          type: "FullBleedImage",
+          src: "/images/case-studies/carloan/template-loan.png",
+          variant: "borderless",
+        },
+        {
+          type: "TextBlock",
+          text: "This template wasn't just for loans. It was designed to be reusable across the entire post-booking experience. The same pattern was adopted for car formalities; document uploads, RC transfers, insurance steps. This ensured a consistent experience regardless of what the user was doing.",
+        },
+        // IMAGE 6.2 (optional) — image-grid
+        // Two post-booking experiences: loan formalities (left) and car formalities (right),
+        // both using the same template.
+        {
+          type: "FullBleedImage",
+          src: "/images/case-studies/carloan/bigpicture1.png",
+          variant: "borderless",
+        },
+      ],
+    },
+    {
+      id: "order-summary",
+      heading: "Order Summary: A Single Source of Truth",
+      content: [
+        {
+          type: "TextBlock",
+          text: "The order summary had to reflect every state change in real time. If the user opted for a loan but hadn't completed formalities, it showed that. If they'd paid the token in tranches, it reflected each payment. When bank statements were shared and an accurate offer was generated, the summary updated accordingly.",
+        },
+        {
+          type: "InsightCallout",
+          text: "The summary had to clearly communicate what was confirmed, what was pending, and when it would next update — across loan details, car details, offers, coupons, token payments, and down payments that could be split into tranches.",
+        },
+        {
+          type: "TextBlock",
+          text: "We designed the order summary to progressively reveal information as the user moved through their journey — starting minimal after booking and becoming more detailed as each step was completed.",
+        },
+        // IMAGE 7.0 — image-grid, 2x2
+        // Four progressive states of the order summary:
+        // (1) Just after booking — minimal, mostly pending.
+        // (2) After bank statement shared — loan details appear.
+        // (3) After offer selected — EMI and down payment reflected.
+        // (4) After payments — tranches shown, remaining balance clear.
+        {
+          type: "FullBleedImage",
+          src: "/images/case-studies/carloan/ordersummary.png",
+          variant: "borderless",
+        },
+      ],
+    },
+    {
+      id: "loan-calculators",
+      heading: "Loan Calculators: From Generic to Precise",
+      content: [
+        {
+          type: "TextBlock",
+          text: "The loan calculator evolved with the user's journey. Before pre-approval, it showed broad ranges and estimated EMIs. After pre-approval, it personalised using known data. After bank statements were shared, it showed precise offers. And once the user selected an EMI plan, we showed a detailed breakdown of all charges involved.",
+        },
+        // IMAGE 8.0 — image-grid, 2x2
+        // Four calculator states:
+        // (1) Generic — before any data.
+        // (2) Pre-approved — some personalisation.
+        // (3) Accurate — after bank statement.
+        // (4) Detailed offer breakdown — after EMI selection.
+        {
+          type: "FullBleedImage",
+          src: "/images/case-studies/carloan/calculators.png",
+          variant: "borderless",
+        },
+        {
+          type: "VideoBlock",
+          src: "/images/case-studies/carloan/DIY-calculator.mp4",
+          variant: "borderless",
+          maxWidth: "800px",
+        },
+      ],
     },
     {
       id: "outcomes",
@@ -194,27 +285,8 @@ export const carloan: CaseStudy = {
         },
         {
           type: "TextBlock",
-          text: "The series of experiments — from better onboarding and education, to improved PDF upload flows — compounded into a measurable reduction in the loan processing time and a significant improvement in booking completion rates.",
+          text: "The improvements — from earlier entry points and better education, to the post-booking template system and improved upload flows — compounded into a measurable reduction in loan processing time and a significant improvement in booking completion rates.",
         },
-      ],
-    },
-    {
-      id: "account-aggregator",
-      heading: "Further way forward: Account Aggregator",
-      content: [
-        {
-          type: "TextBlock",
-          text: "While the improvements to the PDF upload flow were impactful, they still required users to take multiple steps and had a significant drop-off. To further streamline the process, we explored integrating with an Account Aggregator (AA) — a framework in India that allows users to securely share their financial data directly from their bank accounts without needing to download and upload statements.",
-        },
-        {
-          type: "TextBlock",
-          text: "It was more secure than PDF uploads and significantly simpler, requiring just two OTPs to share banking details. However, user awareness and trust in this method were low. To address this, we planned a phased rollout: starting with a small percentage of users, accompanied by educational prompts and support to build trust and familiarity with the AA method.",
-        },
-        {
-          type: "FullBleedImage",
-          src: "https://framerusercontent.com/images/t3OtwYCQ1tmscFvkw44LCzJbiw.png",
-          maxWidth: "800px",
-        }
       ],
     },
     {

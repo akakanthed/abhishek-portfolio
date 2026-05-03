@@ -10,6 +10,8 @@ import TextBlock from "@/components/case-study/TextBlock";
 import InsightCallout from "@/components/case-study/InsightCallout";
 import MetricHighlight from "@/components/case-study/MetricHighlight";
 import FullBleedImage from "@/components/case-study/FullBleedImage";
+import HeroVideo from "@/components/case-study/HeroVideo";
+import VideoBlock from "@/components/case-study/VideoBlock";
 import PullQuote from "@/components/case-study/PullQuote";
 import ImageGrid from "@/components/case-study/ImageGrid";
 import ListBlock from "@/components/case-study/ListBlock";
@@ -35,6 +37,20 @@ function renderBlock(block: ContentBlock, i: number) {
       return <MetricHighlight key={i} stat={block.stat} label={block.label} />;
     case "FullBleedImage":
       return <FullBleedImage key={i} src={block.src} caption={block.caption} maxWidth={block.maxWidth} variant={block.variant} />;
+    case "VideoBlock":
+      return (
+        <VideoBlock
+          key={i}
+          src={block.src}
+          poster={block.poster}
+          caption={block.caption}
+          maxWidth={block.maxWidth}
+          variant={block.variant}
+          controls={block.controls}
+          autoPlay={block.autoPlay}
+          loop={block.loop}
+        />
+      );
     case "PullQuote":
       return <PullQuote key={i} text={block.text} />;
     case "ImageGrid":
@@ -126,8 +142,12 @@ export default async function CaseStudyPage({
           </p>
         </div>
 
-        {/* ── Hero image — borderless full-bleed ─────────────────────── */}
-        <FullBleedImage src={cs.heroImage} variant="borderless" priority />
+        {/* ── Hero image / video — borderless full-bleed ─────────────── */}
+        {cs.heroVideo ? (
+          <HeroVideo videoSrc={cs.heroVideo} posterSrc={cs.heroImage} maxWidth="800px" />
+        ) : (
+          <FullBleedImage src={cs.heroImage} variant="borderless" priority />
+        )}
 
 
         {/* ── Overview (role / team / timeline & status + overview copy) ── */}
@@ -160,7 +180,7 @@ export default async function CaseStudyPage({
 
             {/* Content blocks */}
             {section.content.map((block, i) => {
-              if (block.type === "FullBleedImage" || block.type === "ImageGrid") {
+              if (block.type === "FullBleedImage" || block.type === "ImageGrid" || block.type === "VideoBlock") {
                 return renderBlock(block, i);
               }
               if (

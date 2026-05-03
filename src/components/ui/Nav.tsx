@@ -73,7 +73,7 @@ export default function Nav() {
           Work
         </a>
         <a
-          href="https://drive.google.com/file/d/1i-idUD4-0z9VnGdOk_b9SGPMmEGfqJQ1/view"
+          href="https://drive.google.com/file/d/1irv3zdRVYyH_ktGVZjcwQFPHGPjs-gh3/view?usp=sharing"
           target="_blank"
           rel="noopener noreferrer"
           style={{

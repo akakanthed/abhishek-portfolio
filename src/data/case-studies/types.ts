@@ -19,6 +19,7 @@ export type ContentBlock =
   | { type: "InsightCallout"; text: string }
   | { type: "MetricHighlight"; stat: string; label: string }
   | { type: "FullBleedImage"; src: string; caption?: string; maxWidth?: string; variant?: ImageVariant }
+  | { type: "VideoBlock"; src: string; poster?: string; caption?: string; maxWidth?: string; variant?: ImageVariant; controls?: boolean; autoPlay?: boolean; loop?: boolean }
   | { type: "PullQuote"; text: string }
   | { type: "ImageGrid"; rows: string[][]; caption?: string; number?: string; maxWidth?: string }
   | { type: "ListBlock"; items: string[]; ordered?: boolean }
@@ -54,6 +55,7 @@ export type CaseStudy = {
   category: string;
   metric: string;
   heroImage: string;
+  heroVideo?: string;
   cardImage: string;
   overview?: CaseStudyOverview;
   sections: CaseStudySection[];
