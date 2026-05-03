@@ -145,9 +145,9 @@ export default async function CaseStudyPage({
         {/* ── Hero image / video — borderless full-bleed ─────────────── */}
         {cs.heroVideo ? (
           <HeroVideo videoSrc={cs.heroVideo} posterSrc={cs.heroImage} maxWidth="800px" />
-        ) : (
+        ) : cs.heroImage ? (
           <FullBleedImage src={cs.heroImage} variant="borderless" priority />
-        )}
+        ) : null}
 
 
         {/* ── Overview (role / team / timeline & status + overview copy) ── */}

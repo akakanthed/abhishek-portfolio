@@ -54,7 +54,7 @@ export type CaseStudy = {
   company: string;
   category: string;
   metric: string;
-  heroImage: string;
+  heroImage?: string;
   heroVideo?: string;
   cardImage: string;
   overview?: CaseStudyOverview;
