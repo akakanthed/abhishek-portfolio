@@ -18,6 +18,20 @@ export const metadata: Metadata = {
   title: "Abhishek Kanthed — Senior Product Designer",
   description:
     "Portfolio of Abhishek Kanthed, Senior Product Designer specialising in enterprise DevOps and fintech products.",
+  icons: {
+    icon: [
+      {
+        url: "/favicon_lightmode.svg",
+        type: "image/svg+xml",
+        media: "(prefers-color-scheme: light)",
+      },
+      {
+        url: "/favicon_darkmode.svg",
+        type: "image/svg+xml",
+        media: "(prefers-color-scheme: dark)",
+      },
+    ],
+  },
 };
 
 export default function RootLayout({
