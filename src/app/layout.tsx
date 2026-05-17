@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { DM_Serif_Display, Inter } from "next/font/google";
 import "./globals.css";
 import SmoothScrollProvider from "@/components/ui/SmoothScrollProvider";
+import { Analytics } from "@vercel/analytics/next";
 
 const dmSerifDisplay = DM_Serif_Display({
   variable: "--font-dm-serif",
@@ -46,6 +47,7 @@ export default function RootLayout({
     >
       <body suppressHydrationWarning>
         <SmoothScrollProvider>{children}</SmoothScrollProvider>
+        <Analytics />
       </body>
     </html>
   );
