@@ -116,7 +116,7 @@ export default function Home() {
           {/* 5. CTA */}
           <motion.div
             {...fadeIn(0.65)}
-            style={{ display: "flex", gap: "12px", flexWrap: "wrap" }}
+            style={{ display: "flex", gap: "12px", flexWrap: "wrap", alignItems: "center" }}
           >
             <button
               onClick={scrollToWork}
@@ -138,7 +138,7 @@ export default function Home() {
                 (e.currentTarget as HTMLButtonElement).style.background = "transparent";
               }}
             >
-              See how I think ↓
+              View work ↓
             </button>
             <a
               href="https://www.linkedin.com/in/akanthed/"
@@ -179,6 +179,42 @@ export default function Home() {
             </a>
           </motion.div>
         </div>
+
+        {/* Scroll nudge */}
+        <motion.button
+          onClick={scrollToWork}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.2, duration: 0.6 }}
+          style={{
+            position: "absolute",
+            bottom: "36px",
+            left: "50%",
+            transform: "translateX(-50%)",
+            background: "transparent",
+            border: "none",
+            cursor: "pointer",
+            padding: "8px",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            gap: "4px",
+            color: "var(--text-muted)",
+          }}
+          aria-label="Scroll to work"
+        >
+          {[0, 0.15, 0.3].map((stagger) => (
+            <motion.div
+              key={stagger}
+              animate={{ y: [0, 6, 0], opacity: [0.3, 1, 0.3] }}
+              transition={{ duration: 1.6, repeat: Infinity, ease: "easeInOut", repeatDelay: 0.4, delay: stagger }}
+            >
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
+            </motion.div>
+          ))}
+        </motion.button>
       </section>
 
       {/* ── Work section ─────────────────────────────────────────── */}
